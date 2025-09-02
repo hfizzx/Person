@@ -53,6 +53,9 @@ function App() {
     { title: "TailwindCSS", image: "/assets/tools/tailwind.png" },
     { title: "Figma", image: "/assets/tools/figma.png" },
     { title: "Bootstap", image: "/assets/tools/bootstrap.png" },
+    { title: "GitHub", image: "/assets/tools/github.png" },
+    { title: "JavaScript", image: "/assets/tools/js.png" },
+    { title: "Git", image: "/assets/tools/git.png" },
   ];
 
   // === fungsi render ===
@@ -130,6 +133,32 @@ function App() {
     }
   };
 
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxjByN0Ar5JphRFv4NGZTZGdx6FnFId2W6DQh7ZN43UkQFiIR8uwXp8I_PsUBNcWT70/exec";
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      await fetch(scriptURL, { method: "POST", body: formData });
+      setSuccess(true);
+      form.reset();
+    } catch (error) {
+      console.error("Error!", error.message);
+      alert("Terjadi kesalahan, coba lagi.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
   return (
     <div className="px-0 py-10 mt-30">
       {/* Hero Section */}
@@ -156,9 +185,9 @@ function App() {
             typingSpeed={100}
             deletingSpeed={50}
             pauseDuration={1500}
-            className="text-2xl md:text-4xl font-bold mb-6 leading-tight text-blue-500"
+            className="text-2xl md:text-4xl font-bold mb-6 leading-tight text-blue-600"
             cursorClassName="text-blue-500"
-            textColors={["#2196F3", "#2196F3", "#2196F3"]}
+            textColors={["#2563EB", "#2563EB", "#2563EB"]}
           />
 
           <p className="text-sm md:text-base leading-relaxed text-gray-300">
@@ -172,7 +201,7 @@ function App() {
           <div>
             <a
               href="#portfolio"
-              className="inline-block bg-blue-600 shadow-[0_0_70px_#1565C0] text-white px-6 py-3 rounded-xl hover:bg-blue-800 transition"
+              className="inline-block bg-blue-600 text-white shadow-[0_0_20px_#1565C0] px-6 py-3 rounded-xl hover:bg-blue-800 transition"
             >
               Projects
             </a>
@@ -211,39 +240,41 @@ function App() {
         </p>
       </div>
 
+
       {/* Tabs */}
-      <div className="flex flex-wrap justify-center gap-4 py-6 px-5 bg-zinc-800 rounded-2xl mt-10 max-w-3xl mx-auto text-center shadow-[0_0_90px_#1565C0] ring-1 ring-blue-600">
-        <button
-          onClick={() => setActiveTab("projects")}
-          className={`px-6 py-2 rounded-xl transition ${
-            activeTab === "projects"
-              ? "bg-blue-600 text-white"
-              : "bg-gray-700 text-gray-300 hover:bg-gray-600"
-          }`}
-        >
-          Projects
-        </button>
-        <button
-          onClick={() => setActiveTab("certifications")}
-          className={`px-6 py-2 rounded-xl transition ${
-            activeTab === "certifications"
-              ? "bg-blue-600 text-white"
-              : "bg-gray-700 text-gray-300 hover:bg-gray-600"
-          }`}
-        >
-          Certifications
-        </button>
-        <button
-          onClick={() => setActiveTab("skills")}
-          className={`px-6 py-2 rounded-xl transition ${
-            activeTab === "skills"
-              ? "bg-blue-600 text-white"
-              : "bg-gray-700 text-gray-300 hover:bg-gray-600"
-          }`}
-        >
-          Skills
-        </button>
-      </div>
+<div className="flex justify-center gap-3 md:gap-6 py-4 px-3 bg-zinc-800 rounded-2xl mt-10 max-w-3xl mx-auto text-center shadow-[0_0_90px_#1565C0] ring-1 ring-blue-600">
+  <button
+    onClick={() => setActiveTab("projects")}
+    className={`px-4 py-2 md:px-8 md:py-3 rounded-lg font-semibold transition-all duration-300 text-sm md:text-base ${
+      activeTab === "projects"
+        ? "bg-blue-600 text-white shadow-[0_0_20px_#1565C0]"
+        : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:scale-105"
+    }`}
+  >
+    Projects
+  </button>
+  <button
+    onClick={() => setActiveTab("certifications")}
+    className={`px-4 py-2 md:px-8 md:py-3 rounded-lg font-semibold transition-all duration-300 text-sm md:text-base ${
+      activeTab === "certifications"
+        ? "bg-blue-600 text-white shadow-[0_0_20px_#1565C0]"
+        : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:scale-105"
+    }`}
+  >
+    Certifications
+  </button>
+  <button
+    onClick={() => setActiveTab("skills")}
+    className={`px-4 py-2 md:px-8 md:py-3 rounded-lg font-semibold transition-all duration-300 text-sm md:text-base ${
+      activeTab === "skills"
+        ? "bg-blue-600 text-white shadow-[0_0_20px_#1565C0]"
+        : "bg-gray-700 text-gray-300 hover:bg-gray-600 hover:scale-105"
+    }`}
+  >
+    Skills
+  </button>
+</div>
+
 
       {/* Content */}
       <div className="mt-6 max-w-6xl mx-auto text-gray-300">
@@ -266,73 +297,115 @@ function App() {
 
       {/* Contact Section */}
       
+    <div className="bg-black min-h-screen text-white">
+      {/* === CONTACT SECTION === */}
       <div
-  id="contact"
-  className="flex flex-col justify-center items-center py-12 px-6 mt-20 max-w-3xl mx-auto text-center"
->
-  <h1 className="font-bold leading-tight text-blue-500 text-4xl">
-    Contact Me
-  </h1>
-  <p className="mt-4 text-gray-300 opacity-80">
-    Punya pertanyaan? Kirimi saya pesan, dan saya akan segera membalasnya.
-  </p>
+        id="contact"
+        className="flex flex-col justify-center items-center py-12 px-6 mt-20 max-w-3xl mx-auto text-center"
+      >
+        <h1 className="font-bold leading-tight text-blue-500 text-4xl">
+          Contact Me
+        </h1>
+        <p className="mt-4 text-gray-300 opacity-80">
+          Punya pertanyaan? Kirimi saya pesan, dan saya akan segera membalasnya.
+        </p>
 
-  <form
-    action=""
-    className="bg-zinc-800 p-8 w-full mx-auto rounded-xl mt-10 shadow-lg"
-    autoComplete="off"
-  >
-    <div className="flex flex-col gap-6">
-      {/* Nama Lengkap */}
-      <div className="flex flex-col gap-2 text-left">
-        <label className="font-semibold text-gray-200">Nama Lengkap</label>
-        <input
-          type="text"
-          name="nama"
-          placeholder="Masukan Nama"
-          required
-          className="border border-zinc-600 bg-zinc-900 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-
-      {/* Email */}
-      <div className="flex flex-col gap-2 text-left">
-        <label className="font-semibold text-gray-200">Email</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="Masukan email"
-          required
-          className="border border-zinc-600 bg-zinc-900 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-
-      {/* Pesan */}
-      <div className="flex flex-col gap-2 text-left">
-        <label htmlFor="pesan" className="font-semibold text-gray-200">
-          Pesan
-        </label>
-        <textarea
-          name="pesan"
-          id="pesan"
-          rows={6}
-          placeholder="Kasih pesan dong.."
-          className="border border-zinc-600 bg-zinc-900 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        ></textarea>
-      </div>
-
-      {/* Button */}
-      <div className="flex justify-end">
-        <button
-          type="submit"
-          className="bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-200"
+        <form
+          onSubmit={handleSubmit}
+          className="bg-zinc-800 p-6 md:p-8 w-full max-w-lg mx-auto rounded-xl mt-10 shadow-[0_0_60px_#1565C0]"
+          autoComplete="off"
         >
-          Kirim
-        </button>
+          <div className="flex flex-col gap-6">
+            {/* Alert dengan tombol X */}
+            {success && (
+              <div className="bg-blue-600 text-white rounded-md py-2 px-4 flex justify-between items-center">
+                <span>
+                  <strong>Terimakasih!</strong> Pesanmu sudah terkirim 😊
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setSuccess(false)}
+                  className="ml-3 text-white hover:text-gray-200 font-bold"
+                >
+                  ✕
+                </button>
+              </div>
+            )}
+
+            {/* Nama */}
+            <div className="flex flex-col gap-2 text-left">
+              <label className="font-semibold text-gray-200">Nama Lengkap</label>
+              <input
+                type="text"
+                name="nama"
+                placeholder="Masukan Nama"
+                required
+                className="border border-zinc-600 bg-zinc-900 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            {/* Email */}
+            <div className="flex flex-col gap-2 text-left">
+              <label className="font-semibold text-gray-200">Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Masukan email"
+                required
+                className="border border-zinc-600 bg-zinc-900 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            {/* Pesan */}
+            <div className="flex flex-col gap-2 text-left">
+              <label htmlFor="pesan" className="font-semibold text-gray-200">
+                Pesan
+              </label>
+              <textarea
+                name="pesan"
+                id="pesan"
+                rows={6}
+                placeholder="Kasih pesan dong.."
+                className="border border-zinc-600 bg-zinc-900 p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
+
+            {/* Tombol dengan animasi loading */}
+            <div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full md:w-auto flex justify-center items-center gap-2 bg-blue-600 text-white shadow-[0_0_20px_#1565C0] font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-200 disabled:opacity-70"
+              >
+                {loading && (
+                  <svg
+                    className="animate-spin h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    ></path>
+                  </svg>
+                )}
+                {loading ? "Mengirim..." : "Kirim"}
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-  </form>
-</div>
 
 
       {/* Contact End */}
