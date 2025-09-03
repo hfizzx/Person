@@ -14,17 +14,17 @@ function App() {
       title: "Website portfolio",
       description:
         "Program ini dirancang untuk mempermudah pengguna dalam menyelesaikan soal-soal aritmatika.",
-      image: "/assets/proyek/proyek1.webp",
-      demo: "#",
-      details: "#",
+      image: "/assets/proyek/proyek8.webp",
+      demo: "hfizz.my.id",
+      details: "https://github.com/hfizzx/Person",
     },
     {
-      title: "AutoChat-Discord",
+      title: "Music Card",
       description:
-        "Solusi otomatisasi untuk mengirim pesan ke saluran Discord secara efisien.",
-      image: "/assets/proyek/proyek2.webp",
-      demo: "#",
-      details: "#",
+        "Saya disini membuat Playlist favorit dengan memanfaatkan dom, array pada javascript.",
+      image: "/assets/proyek/proyek7.webp",
+      demo: "https://hfizzx.github.io/DDK---3-Music-Card/",
+      details: "https://github.com/hfizzx/DDK---3-Music-Card",
     },
     {
       title: "Buku Catatan",
