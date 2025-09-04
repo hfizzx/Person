@@ -13,7 +13,7 @@ function App() {
     {
       title: "Website portfolio",
       description:
-        "Program ini dirancang untuk mempermudah pengguna dalam menyelesaikan soal-soal aritmatika.",
+        "Website ini upgrade dari website pertama saya, dengan menambahkan beberapa fitur dan desain yang lebih menarik.",
       image: "/assets/proyek/proyek8.webp",
       demo: "hfizz.my.id",
       details: "https://github.com/hfizzx/Person",
@@ -27,10 +27,10 @@ function App() {
       details: "https://github.com/hfizzx/DDK---3-Music-Card",
     },
     {
-      title: "Buku Catatan",
+      title: "Coming Soon Page",
       description:
-        "Website untuk membuat, menyimpan, dan mengelola catatan digital dengan mudah.",
-      image: "/assets/proyek/proyek3.webp",
+        "Segera hadir, project menarik lainnya akan saya tambahkan.",
+      image: "/assets/proyek/ComingSoon.webp",
       demo: "#",
       details: "#",
     },
@@ -160,7 +160,7 @@ function App() {
 
 
   return (
-    <div className="px-0 py-10 mt-30">
+    <div className="px-0 py-0 mx-0 mt-30">
       {/* Hero Section */}
       <div className="hero grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         {/* Left Content */}
@@ -297,7 +297,7 @@ function App() {
 
       {/* Contact Section */}
       
-    <div className="bg-black min-h-screen text-white">
+    <div className="bg-zinc-950 min-h-screen text-white">
       {/* === CONTACT SECTION === */}
       <div
         id="contact"
@@ -406,9 +406,39 @@ function App() {
         </form>
       </div>
     </div>
-
-
       {/* Contact End */}
+
+      {/* Footer */}
+<footer className="bg-zinc-900 text-gray-400 text-xs py-7 mt-20 rounded-t-3xl">
+  <div className="max-w-4xl mx-auto text-center">
+    &copy; {new Date().getFullYear()} Hafiz Arintaka. All rights reserved.
+  </div>
+
+  {/* Social media icons */}
+  <div className="flex flex-row justify-center items-center gap-6 mt-6">
+    {/* GitHub */}
+    <a href="https://github.com/hfizzx" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.207 11.387c.6.113.82-.26.82-.577v-2.026c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.807 1.305 3.492.997.108-.775.42-1.305.762-1.605-2.665-.304-5.466-1.334-5.466-5.932 0-1.31.467-2.382 1.235-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 016 0c2.29-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.12 3.176.77.84 1.234 1.912 1.234 3.222 0 4.61-2.805 5.624-5.478 5.921.432.37.816 1.102.816 2.222v3.293c0 .32.216.694.824.576A12 12 0 0024 12c0-6.627-5.373-12-12-12z"/>
+      </svg>
+    </a>
+
+    {/* Instagram */}
+    <a href="https://www.instagram.com/_akaafhz" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M7.5 2h9A5.5 5.5 0 0122 7.5v9a5.5 5.5 0 01-5.5 5.5h-9A5.5 5.5 0 012 16.5v-9A5.5 5.5 0 017.5 2zm0 2A3.5 3.5 0 004 7.5v9A3.5 3.5 0 007.5 20h9a3.5 3.5 0 003.5-3.5v-9A3.5 3.5 0 0016.5 4h-9zm4.5 3.5a5 5 0 110 10 5 5 0 010-10zm0 2A3 3 0 1015 12a3 3 0 00-3-3zm4.75-.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"/>
+      </svg>
+    </a>
+
+    <a href="https://www.linkedin.com/in/hafiz-arintaka-a1a351369/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-6.5 h-6.5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M 6 3 C 4.3550302 3 3 4.3550302 3 6 L 3 18 C 3 19.64497 4.3550302 21 6 21 L 18 21 C 19.64497 21 21 19.64497 21 18 L 21 6 C 21 4.3550302 19.64497 3 18 3 L 6 3 z M 6 5 L 18 5 C 18.56503 5 19 5.4349698 19 6 L 19 18 C 19 18.56503 18.56503 19 18 19 L 6 19 C 5.4349698 19 5 18.56503 5 18 L 5 6 C 5 5.4349698 5.4349698 5 6 5 z M 8.1855469 6.7851562 C 7.4445469 6.7851563 7 7.2293594 7 7.8183594 C 7 8.4113594 7.444375 8.8574219 8.109375 8.8574219 C 8.850375 8.8574219 9.2910156 8.4113594 9.2910156 7.8183594 C 9.2910156 7.2303594 8.8505469 6.7851562 8.1855469 6.7851562 z M 7.0625 9.9628906 L 7.0625 16 L 9.2363281 16 L 9.2363281 9.9628906 L 7.0625 9.9628906 z M 11.033203 9.9628906 L 11.033203 16 L 13.207031 16 L 13.207031 12.697266 C 13.207031 11.718266 13.908141 11.574219 14.119141 11.574219 C 14.330141 11.574219 14.892578 11.785266 14.892578 12.697266 L 14.892578 16 L 17 16 L 17 12.697266 C 17 10.806266 16.154516 9.9628906 15.103516 9.9628906 C 14.052516 9.9628906 13.490031 10.312641 13.207031 10.806641 L 13.207031 9.9628906 L 11.033203 9.9628906 z"></path>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+      {/* Footer End */}
     </div>
   );
 }
