@@ -409,7 +409,7 @@ function App() {
       {/* Contact End */}
 
       {/* Footer */}
-<footer className="bg-zinc-900 text-gray-400 text-xs py-7 mt-20 rounded-t-3xl">
+<footer className="bg-zinc-900 text-gray-400 text-xs py-7 mt-20 rounded-t-3xl shadow-[0_0_35px_#1565C0]">
   <div className="max-w-4xl mx-auto text-center">
     &copy; {new Date().getFullYear()} Hafiz Arintaka. All rights reserved.
   </div>
